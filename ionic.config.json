@@ -1,0 +1,7 @@
+{
+  "name": "syncSemana2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
