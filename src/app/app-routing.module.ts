@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: '',
@@ -13,29 +13,29 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'menu-ppal',
-    loadChildren: () => import('./menu-ppal/menu-ppal.module').then( m => m.MenuPpalPageModule)
+    loadChildren: () => import('./menu-ppal/menu-ppal.module').then(m => m.MenuPpalPageModule)
   },
   {
     path: 'crear-receta',
-    loadChildren: () => import('./crear-receta/crear-receta.module').then( m => m.CrearRecetaPageModule)
+    loadChildren: () => import('./crear-receta/crear-receta.module').then(m => m.CrearRecetaPageModule)
   },
   {
     path: 'buscar-receta',
-    loadChildren: () => import('./buscar-receta/buscar-receta.module').then( m => m.BuscarRecetaPageModule)
+    loadChildren: () => import('./buscar-receta/buscar-receta.module').then(m => m.BuscarRecetaPageModule)
   },
   {
     path: 'ingresar-ingredientes',
-    loadChildren: () => import('./ingresar-ingredientes/ingresar-ingredientes.module').then( m => m.IngresarIngredientesPageModule)
+    loadChildren: () => import('./ingresar-ingredientes/ingresar-ingredientes.module').then(m => m.IngresarIngredientesPageModule)
   },
   {
     path: 'ing-ingr',
-    loadChildren: () => import('./ing-ingr/ing-ingr.module').then( m => m.IngIngrPageModule)
+    loadChildren: () => import('./ing-ingr/ing-ingr.module').then(m => m.IngIngrPageModule)
   },
-  
+  // agrega otras rutas aquí
 ];
 
 @NgModule({

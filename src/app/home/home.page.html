@@ -21,10 +21,6 @@
       <ion-card-content>
         <ion-card-title>
           <h1>Ingresa tus datos</h1>
-          <!-- 
-              <p>Usuario: {{ usuarioRecibido }}</p>
-          -->
-          
         </ion-card-title>
       
         <ion-item>
@@ -36,26 +32,13 @@
           <ion-label position="floating">Apellido</ion-label>
           <ion-input type="text" [(ngModel)]="apellido"></ion-input>
         </ion-item>
-        <!-- 
-        <ion-item>
-          <ion-label>Nivel de Educación</ion-label>
-          <ion-select [(ngModel)]="selectedOption">
-            <ion-select-option value="option1">Universitario</ion-select-option>
-            <ion-select-option value="option2">Magister</ion-select-option>
-            <ion-select-option value="option3">Doctorado</ion-select-option>
-          </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-label>Fecha Nacimiento</ion-label>
-          <ion-input type="date" [(ngModel)]="selectedDate"></ion-input>
-        </ion-item>
-         -->
+
       </ion-card-content>
-      <!--Creamos el botón-->
       <ion-button (click)="limpiar()">Limpiar</ion-button>
       <ion-button shape="block" (click)="registrar()">Registro: {{ mensaje }}</ion-button>
-      
     </ion-card>
-    
+    <!-- Aquí se incluye el componente NombresComponent -->
+    <app-nombres [nombre]="nombre" [apellido]="apellido"></app-nombres>
   </div>
 </ion-content>
+
