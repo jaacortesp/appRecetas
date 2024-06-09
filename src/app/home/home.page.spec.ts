@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { HomePage } from './home.page';
+import { NombresComponent } from '../components/nombres/nombres.component'; // Importa el componente aquí
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -9,7 +9,7 @@ describe('HomePage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomePage],
+      declarations: [HomePage, NombresComponent], // Declara el componente aquí
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
@@ -22,3 +22,4 @@ describe('HomePage', () => {
     expect(component).toBeTruthy();
   });
 });
+

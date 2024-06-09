@@ -4,9 +4,11 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NombresComponent } from './components/nombres/nombres.component';
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NombresComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
