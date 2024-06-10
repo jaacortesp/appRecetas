@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { SqliteService } from '../services/sqlite.service';
 
 @Component({
   selector: 'app-ingresar-ingredientes',
@@ -8,24 +9,28 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./ingresar-ingredientes.page.scss'],
 })
 export class IngresarIngredientesPage implements OnInit {
-  usuarioRecibido: string='';
-  passwordRecibido: string='';
-  nombrePreparacion: string='';
-  apellido: string='';
-  mensaje: string= '';
-  selectedOption: string='';
-  selectedDate: string='';
+  usuarioRecibido: string = '';
+  passwordRecibido: string = '';
+  nombrePreparacion: string = '';
+  apellido: string = '';
+  mensaje: string = '';
+  selectedOption: string = '';
+  selectedDate: string = '';
   usuarios: any = [];
 
-  constructor(private router:Router, private activatedRouter:ActivatedRoute, private alertController: AlertController) {
+  constructor(
+    private router: Router,
+    private activatedRouter: ActivatedRoute,
+    private alertController: AlertController,
+    private sqliteService: SqliteService
+  ) {
     this.activatedRouter.queryParams.subscribe(params => {
-      if(this.router.getCurrentNavigation()?.extras?.state) {
+      if (this.router.getCurrentNavigation()?.extras?.state) {
         this.usuarioRecibido = this.router.getCurrentNavigation()?.extras?.state?.['usuarioEnviado'];
         this.passwordRecibido = this.router.getCurrentNavigation()?.extras?.state?.['passwordEnviado'];
-
         console.log();
       }
-    })
+    });
   }
 
   async presentAlert(message: string) {
@@ -37,7 +42,10 @@ export class IngresarIngredientesPage implements OnInit {
 
     await alert.present();
   }
-  ngOnInit() {
-  }
 
+  async ngOnInit() {
+    await this.sqliteService.initializeDatabase();
+  }
 }
+
+
