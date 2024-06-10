@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { SqliteService } from './services/sqlite.service'; 
+import { IonicStorageModule } from '@ionic/storage-angular'; 
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,7 +14,8 @@ import { SqliteService } from './services/sqlite.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    IonicStorageModule.forRoot() 
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -23,6 +25,7 @@ import { SqliteService } from './services/sqlite.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}
+
 
 
 

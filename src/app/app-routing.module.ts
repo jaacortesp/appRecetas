@@ -50,11 +50,11 @@ const routes: Routes = [
   },
   {
     path: 'agregar',
-    loadChildren: () => import('./pages/agregar/agregar.module').then( m => m.AgregarPageModule)
+    loadChildren: () => import('./services/pages/agregar/agregar.module').then( m => m.AgregarPageModule)
   },
   {
     path: 'modificar',
-    loadChildren: () => import('./pages/modificar/modificar.module').then( m => m.ModificarPageModule)
+    loadChildren: () => import('./services/pages/modificar/modificar.module').then( m => m.ModificarPageModule)
   },
   // otras rutas 
 ];
