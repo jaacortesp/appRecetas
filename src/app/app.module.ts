@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { SqliteService } from './services/sqlite.service'; 
 import { IonicStorageModule } from '@ionic/storage-angular'; 
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

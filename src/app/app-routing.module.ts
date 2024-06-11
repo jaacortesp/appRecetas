@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard'; 
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'; 
+
 
 const routes: Routes = [
   {
@@ -56,7 +58,8 @@ const routes: Routes = [
     path: 'modificar',
     loadChildren: () => import('./services/pages/modificar/modificar.module').then( m => m.ModificarPageModule)
   },
-  // otras rutas 
+  { path: '**', 
+    component: PageNotFoundComponent },
 ];
 
 @NgModule({
