@@ -18,3 +18,4 @@ import { IngresarIngredientesPage } from './ingresar-ingredientes.page';
   declarations: [IngresarIngredientesPage]
 })
 export class IngresarIngredientesPageModule {}
+

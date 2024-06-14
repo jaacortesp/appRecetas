@@ -45,12 +45,6 @@ const routes: Routes = [
     canActivate: [AuthGuard] 
   },
   {
-    path: 'ing-ingr',
-    loadChildren: () => import('./ing-ingr/ing-ingr.module').then(m => m.IngIngrPageModule),
-    canMatch: [AuthGuard],
-    canActivate: [AuthGuard] 
-  },
-  {
     path: 'agregar',
     loadChildren: () => import('./services/pages/agregar/agregar.module').then( m => m.AgregarPageModule)
   },
@@ -60,6 +54,10 @@ const routes: Routes = [
   },
   { path: '**', 
     component: PageNotFoundComponent },
+  {
+    path: 'ingresar-ingredientes',
+    loadChildren: () => import('./ingresar-ingredientes/ingresar-ingredientes.module').then( m => m.IngresarIngredientesPageModule)
+  },
 ];
 
 @NgModule({

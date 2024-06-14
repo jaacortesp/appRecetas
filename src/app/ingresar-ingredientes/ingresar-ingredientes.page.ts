@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
-import { SqliteService } from '../services/sqlite.service';
 
 @Component({
   selector: 'app-ingresar-ingredientes',
@@ -9,43 +6,47 @@ import { SqliteService } from '../services/sqlite.service';
   styleUrls: ['./ingresar-ingredientes.page.scss'],
 })
 export class IngresarIngredientesPage implements OnInit {
-  usuarioRecibido: string = '';
-  passwordRecibido: string = '';
-  nombrePreparacion: string = '';
-  apellido: string = '';
-  mensaje: string = '';
-  selectedOption: string = '';
-  selectedDate: string = '';
-  usuarios: any = [];
 
-  constructor(
-    private router: Router,
-    private activatedRouter: ActivatedRoute,
-    private alertController: AlertController,
-    private sqliteService: SqliteService
-  ) {
-    this.activatedRouter.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation()?.extras?.state) {
-        this.usuarioRecibido = this.router.getCurrentNavigation()?.extras?.state?.['usuarioEnviado'];
-        this.passwordRecibido = this.router.getCurrentNavigation()?.extras?.state?.['passwordEnviado'];
-        console.log();
-      }
-    });
+  items: { name: string; flag: number }[] = [];
+
+  constructor() { }
+
+  ngOnInit() {
+    this.addInput();
   }
 
-  async presentAlert(message: string) {
-    const alert = await this.alertController.create({
-      header: 'Mensaje',
-      message: message,
-      buttons: ['OK']
-    });
-
-    await alert.present();
+  addInput(): void {
+    this.items.push({ name: '', flag: 1 });
+    console.log(this.items);
   }
 
-  async ngOnInit() {
-    await this.sqliteService.initializeDatabase();
+  changeInInput(event: any, index: number): void {
+    console.log(event, index);
+    const value = event.detail.value;
+    if (value?.length > 0) {
+      if (!this.items[index + 1]) this.addInput();
+      if (this.items[index].flag === 0) this.toggleFlag(index, 1);
+    } else {
+      this.toggleFlag(index, 0);
+    }
   }
+
+  toggleFlag(index: number, val: number): void {
+    this.items[index].flag = val;
+  }
+
+  checkEmptyInput(): void {
+    console.log(this.items);
+    if (this.items?.length > 1) {
+      this.items = this.items.filter(
+        element => (
+          element.name.trim().length > 0 
+          || 
+          (element.name.trim().length === 0 && element.flag === 1)
+        )
+      );
+    }
+  }
+
 }
-
 
