@@ -37,7 +37,7 @@ export class IngresarIngredientesPage implements OnInit {
 
   checkEmptyInput(): void {
     console.log(this.items);
-    if (this.items?.length > 1) {
+    if (this.items.length > 1) { // ya que items siempre es un array, no necesitas el operador de encadenamiento opcional
       this.items = this.items.filter(
         element => (
           element.name.trim().length > 0 
@@ -49,4 +49,6 @@ export class IngresarIngredientesPage implements OnInit {
   }
 
 }
+
+
 
