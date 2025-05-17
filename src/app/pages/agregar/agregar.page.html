@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Agregar Ingredientes</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Agregar Ingredientes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container" class="cuerpo-page">
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+          <h1>Ingrediente a agregar</h1>
+        </ion-card-title>
+
+        <ion-item>
+          <ion-label position="floating">Nombre del ingrediente</ion-label>
+          <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Cantidad</ion-label>
+          <ion-input type="number" [(ngModel)]="cantidad"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Unidad de medida</ion-label>
+          <ion-input type="text" [(ngModel)]="unidad_med"></ion-input>
+        </ion-item>
+
+      </ion-card-content>
+
+      <ion-button shape="block" (click)="enviarDatos()">Guardar Cambio</ion-button>
+    </ion-card>
+  </div>
+  
+</ion-content>
